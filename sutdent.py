@@ -43,7 +43,7 @@ def addstu():
                 return redirect(url_for('index'))
     return render_template('addstu.html')                     #添加成功则重定向到首页
 
-@app.route('/updatestu',methods=['GET','POST'])                  #这里是修改模块，先要找到要修改的学号，如果找到了进行操作
+@app.route('/updatestu',methods=['GET','POST'])                  #这里是修改模块，先要找ggg到要修改的学号，如果找到了进行操作
 def updatestu():
     if request.method=='POST':
         updateid = request.form.get('updateid')
