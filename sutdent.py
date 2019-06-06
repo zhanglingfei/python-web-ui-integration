@@ -49,15 +49,18 @@ def updatestu():
         updateid = request.form.get('updateid')
         updatedep = request.form.get('updatedepartment')
         updatename = request.form.get('updatename')
+        if updateid == '':
+            return '请输入学号'
         SQL.cursor.execute('SELECT * FROM student WHERE id=%d', updateid)
         row = SQL.cursor.fetchall()
+
         if row==[]:
             return '您输入的学号不存在'
         else:
-            if updatedep !='':                              #这里的一对单引号里什么都没有，表示如果输入框里为空，不进行修改
+            if updatename !='':                              #这里的一对单引号里什么都没有，表示如果输入框里为空，不进行修改
                 SQL.cursor.execute('UPDATE  student SET name=%s WHERE id=%d ',(updatename,updateid))
                # SQL.conn.commit()
-            if updatename!='':
+            if updatedep!='':
                 SQL.cursor.execute('UPDATE  student SET department=%s WHERE id=%d ', (updatedep,updateid))
             SQL.conn.commit()
             return redirect(url_for('index'))
