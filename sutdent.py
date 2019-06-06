@@ -22,7 +22,7 @@ def delstu():
             return '您输入的学号不存在'
         else:
             SQL.cursor.execute('DELETE FROM student WHERE id=%d ', delid)
-            #SQL.conn.commit()
+            SQL.conn.commit()
             return redirect(url_for('index'))              #如果找到了输入的学号执行删除操作，并重定向到首页
     return render_template('delstu.html')
 
@@ -39,7 +39,7 @@ def addstu():
             adddepartment = request.form.get('adddepartment')
             if addname != None and adddepartment and addid != None:            #不为空则添加
                 SQL.cursor.execute('INSERT INTO student VALUES (%d, %s, %s)',(addid,addname,adddepartment))
-              #  SQL.conn.commit()
+                SQL.conn.commit()
                 return redirect(url_for('index'))
     return render_template('addstu.html')                     #添加成功则重定向到首页
 
@@ -56,10 +56,10 @@ def updatestu():
         else:
                 if updatedep !='':                              #这里的一对单引号里什么都没有，表示如果输入框里为空，不进行修改
                     SQL.cursor.execute('UPDATE  student SET name=%s WHERE id=%d ', updatename,updateid)
-                 #   SQL.conn.commit()
+                    SQL.conn.commit()
                 if updatename!='':
                     SQL.cursor.execute('UPDATE  student SET department=%s WHERE id=%d ', updatedep,updateid)
-                  #  SQL.conn.commit()
+                    SQL.conn.commit()
                 return render_template('index.html')
 
 
