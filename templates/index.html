@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生管理系统</title>
+    <style type="text/css">
+        ul{
+            font-size:30px;
+            color:grey;
+            background:613030;
+            height:50px;
+            width:500px;
+         }
+         a{
+            font-size:25px;
+            color:purple;
+            background:FBD3E5;
+            height:50px;
+            width:500px;
+         }
+
+    </style>
+</head>
+<body bgcolor="FFDCB9">
+
+<table border="2">
+        <tbody>
+            <tr>
+                <td><a href="{{url_for('delstu')}}">删除学生信息</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{url_for('addstu')}}">增加学生信息</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{url_for('updatestu')}}">修改学生信息</a></td>
+            </tr>
+            <tr>
+                <td><a href="{{url_for('searchstu')}}">查找学生信息</a></td>
+            </tr>
+        </tbody>
+</table>
+</br>
+<table border="1">
+        {% for i in student %}
+                        <tr>
+                            <td><ul><li>{{ i }}</li></ul></td>
+                        </tr>
+             {% endfor %}
+</table>
+</body>
+
+</html>
