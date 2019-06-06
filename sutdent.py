@@ -55,10 +55,10 @@ def updatestu():
             return '您输入的学号不存在'
         else:
                 if updatedep !='':                              #这里的一对单引号里什么都没有，表示如果输入框里为空，不进行修改
-                    SQL.cursor.execute('UPDATE FROM student SET name=%s WHERE id=%d ', updatename,updateid)
+                    SQL.cursor.execute('UPDATE  student SET name=%s WHERE id=%d ', updatename,updateid)
                  #   SQL.conn.commit()
                 if updatename!='':
-                    SQL.cursor.execute('UPDATE FROM student SET department=%s WHERE id=%d ', updatedep,updateid)
+                    SQL.cursor.execute('UPDATE  student SET department=%s WHERE id=%d ', updatedep,updateid)
                   #  SQL.conn.commit()
                 return render_template('index.html')
 
